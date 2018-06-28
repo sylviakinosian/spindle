@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { SpeciesComponent } from './species/species.component';
 import { SpeciesFormComponent } from './species-form/species-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpeciesComponent,
     SpeciesFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

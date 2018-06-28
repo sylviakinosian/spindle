@@ -1,20 +1,58 @@
-import { Component } from '@angular/core';
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Species Form</h1>
+    <form (ngSubmit)="onSubmit()" #speciesForm="ngForm">
+      <div class="form-group">
+        <label for="family">Family</label>
+        <input type="text" class="form-control" id="family"
+               required
+               [(ngModel)]="model.family" name="family"
+               #family="ngModel">
+        <div [hidden]="family.valid || family.pristine"
+             class="alert alert-danger">
+          Family name is required
+        </div>
+      </div>
 
-import { Species }    from '../species';
+      <div class="form-group">
+        <label for="genus">Genus</label>
+        <input type="text" class="form-control" id="genus"
+               [(ngModel)]="model.genus" name="genus">
+      </div>
 
-@Component({
-  selector: 'app-species-form',
-  templateUrl: './species-form.component.html',
-  styleUrls: ['./species-form.component.css']
-})
-export class SpeciesFormComponent {
+      <div class="form-group">
+        <label for="species">Species</label>
+        <input class="form-control" id="species"
+                required
+                [(ngModel)]="model.species" name="species"
+                #species="ngModel">
+        <div [hidden]="species.valid || species.pristine" 
+	     class="alert alert-danger">
+           species is required 
+	</div>
+      </div>
 
-  model = new Species('Pteridaceae', 'Ceratopteris', 'thalictroides', , '01-07-2017', 'Sylvia Kinosian', 3, 'La Selva', , , , );
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+    </form>
+  </div>
 
-  submitted = false;
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Family</div>
+      <div class="col-xs-9  pull-left">{{ model.family }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Genus</div>
+      <div class="col-xs-9 pull-left">{{ model.genus }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Species</div>
+      <div class="col-xs-9 pull-left">{{ model.species }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>
 
-  onSubmit() { this.submitted = true; }
-
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
-}
