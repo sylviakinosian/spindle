@@ -1,58 +1,72 @@
 <div class="container">
   <div [hidden]="submitted">
+    
     <h1>Species Form</h1>
     <form (ngSubmit)="onSubmit()" #speciesForm="ngForm">
+      
       <div class="form-group">
-        <label for="family">Family</label>
-        <input type="text" class="form-control" id="family"
-               required
-               [(ngModel)]="model.family" name="family"
-               #family="ngModel">
-        <div [hidden]="family.valid || family.pristine"
-             class="alert alert-danger">
-          Family name is required
-        </div>
+        <label for="family">Family: </label>
+        <input type="text" class="form-control" id="family" name="family">
       </div>
 
       <div class="form-group">
-        <label for="genus">Genus</label>
-        <input type="text" class="form-control" id="genus"
-               [(ngModel)]="model.genus" name="genus">
+        <label for="genus">Genus: </label>
+        <input type="text" class="form-control" id="genus" name="genus">
       </div>
 
       <div class="form-group">
-        <label for="species">Species</label>
-        <input class="form-control" id="species"
-                required
-                [(ngModel)]="model.species" name="species"
-                #species="ngModel">
-        <div [hidden]="species.valid || species.pristine" 
-	     class="alert alert-danger">
-           species is required 
-	</div>
+        <label for="species">Species: </label>
+        <input class="form-control" id="species" name="species">
       </div>
 
-      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
-      <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+      <div class="form-group">
+        <label for="collector">Collector: </label>
+        <input class="form-control" id="collector" name="collector">
+      </div>
+
+      <div class="form-group">
+        <label for="colNumber">Collection number: </label>
+        <input class="form-control" id="colNumber" name="colNumber">
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date: </label>
+        <input class="form-control" id="date" name="date">
+      </div>
+
+      <div class="form-group">
+	<label for="location">Location: </label>
+	<input class="form-control" id="location" name ="location">
+      </div>
+
+      <div class="form-group">
+	<label for="elevation">Elevation: </label>
+	<input class="form-control" id="elevation" name ="elevation">
+      </div>
+
+      <div class="form-group">
+	<label for="coordinates">Coordinates: </label>
+	<input class="form-control" id="coordiates" name ="coordinates">
+      </div>
+
+      <div class="form-group">
+	<label for="otherSpecies">Associated Species: </label>
+	<input class="form-control" id="otherSpecies" name ="otherSpecies">
+      </div>
+
+      <div class="form-group">
+	<label for="notes">Notes: </label>
+	<input class="form-control" id="notes" name ="notes">
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!speciesForm.form.valid">Submit</button>
+
+      <button type="button" class="btn btn-default" (click)="newSpecies(); speciesForm.reset()">New Entry</button>
+
+	<br>
+	<br>
+
     </form>
   </div>
 
-  <div [hidden]="!submitted">
-    <h2>You submitted the following:</h2>
-    <div class="row">
-      <div class="col-xs-3">Family</div>
-      <div class="col-xs-9  pull-left">{{ model.family }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">Genus</div>
-      <div class="col-xs-9 pull-left">{{ model.genus }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">Species</div>
-      <div class="col-xs-9 pull-left">{{ model.species }}</div>
-    </div>
-    <br>
-    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-  </div>
-</div>
 
