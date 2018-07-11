@@ -1,4 +1,4 @@
-# HerbAL: HERBarium dAta and Labels
+# Spindal: SPecimen INformation DAta capture & Label creation
 
 **currently under construction**
 
