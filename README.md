@@ -1,6 +1,10 @@
-# HerbariumData
+# HerbAL: HERBarium dAta and Labels
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+**currently under construction**
+
+This app is designed to aid herbarium staff and botanical collectors with a way to record data offline. 
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8. Our app runs via a web browser; we recommend using the latest version of Chrome or Firefox.
 
 ## Development server
 
@@ -23,5 +27,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
+
+Please contact Sylvia Kinosian (sylvia.kinosian@gmail.com) for help using HerbAL.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
