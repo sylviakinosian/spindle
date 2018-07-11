@@ -28,6 +28,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-Please contact Sylvia Kinosian (sylvia.kinosian@gmail.com) for help using HerbAL.
+Please contact Sylvia Kinosian (sylvia.kinosian@gmail.com) for help using Spindle.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
