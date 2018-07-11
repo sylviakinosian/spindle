@@ -6,30 +6,40 @@
      
       <div class="form-group">
         <label for="title">Flora of: </label>
-        <input type="text" class="form-control" id="title" name="title">
+        <select class="form-control" id="title" required
+      	[(ngModel)]="model.title" name = "title">
+        <option *ngFor="let loc of states" [value]="loc">{{loc}}</option>
+       </select>
       </div>
 
       <div class="form-group">
         <label for="family">Family: </label>
-        <input type="text" class="form-control" id="family" name="family">
+        <input type="text" class="form-control" id="family" required
+      	[(ngModel)]="model.family" name = "family">
+	<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+      		Family is required
+	</div>
       </div>
 
       <div class="form-group">
         <label for="genus">Genus: </label>
-        <input type="text" class="form-control" id="genus" name="genus">
+        <input type="text" class="form-control" id="genus" 
+	[(ngModel)]="model.genus" name = "genus">
       </div>
 
       <div class="form-group">
         <label for="species">Species: </label>
-        <input class="form-control" id="species" name="species">
+        <input type="text" class="form-control" id="species" 
+      	[(ngModel)]="model.species" name="species">
       </div>
 
       <div class="form-group">
         <label for="collector">Collector: </label>
-        <input class="form-control" id="collector" name="collector">
+        <input type="text" class="form-control" id="collector" 
+	[(ngModel)]="model.collector" name="collector">
       </div>
 
-      <div class="form-group">
+<!--      <div class="form-group">
         <label for="whoWith">Associated collectors: </label>
         <input type="text" class="form-control" id="whoWith" name="whoWith">
       </div>
@@ -82,12 +92,13 @@
       <div class="form-group">
 	<label for="notes">Notes: </label>
 	<input class="form-control" id="notes" name ="notes">
-      </div>
+      </div> -->
 
-      <button type="submit" class="btn btn-success" [disabled]="!speciesForm.form.valid">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!speciesForm.form.valid">Export as CSV</button>
 
       <button type="button" class="btn btn-default" (click)="newSpecies(); speciesForm.reset()">New Entry</button>
 
+      <button type="button" class="btn btn-default" (click)="newSpecies(); speciesForm.reset()">Darwin Core</button>
 	<br>
 	<br>
 

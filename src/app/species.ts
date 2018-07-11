@@ -5,8 +5,9 @@ constructor(
     public family: string,
     public genus: string,
     public species: string,
-    public collector: string,
-    public whoWith: string,
+    public collector: string
+
+    /*!    public whoWith: string,
     public colNumber: number,
     public homeHerb: string,
     public day: number,
@@ -16,7 +17,7 @@ constructor(
     public elevation?: string,
     public coordinates?: string,
     public otherSpecies?: string,
-    public notes?: string
+    public notes?: string */
   ) {  }
 
 }

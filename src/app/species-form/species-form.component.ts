@@ -10,7 +10,17 @@ import { Species } from '../species';
 
 export class SpeciesFormComponent {
 
+  states = ['Idaho', 'Utah', 'Wyoming'];
+
+  model = new Species(this.states[0], 'Cystopteridaceae', 'Cystopteris', 'fragilis', 'S. P. Kinosian');
+
   submitted = false;
 
   onSubmit() { this.submitted = true; }
-}
+
+  newSpecies() {
+  	this.model = new Species('', '', '', '', '');
+   }
+
+  }
+
