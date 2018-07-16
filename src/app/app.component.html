@@ -1,1 +1,75 @@
-<app-species-form></app-species-form>
+<div *ngIf="!family; else forminfo">
+ <form [formGroup]="speciesForm" (ngSubmit)="addPost(speciesForm.value)">
+   <div class="form-container">
+     <div class="row columns">
+       <h1>Species Form</h1>
+
+       <label>Flora of:
+         <input type="text" formControlName="flora">
+       </label>
+       <div class="alert" *ngIf="!speciesForm.controls['family'].valid && speciesForm.controls['family'].touched">{{ titleAlert }}</div>
+
+       <label>Family:
+         <input type="text" formControlName="family">
+       </label>
+       <div class="alert" *ngIf="!speciesForm.controls['family'].valid && speciesForm.controls['family'].touched">{{ titleAlert }}</div>
+
+       <label>Genus:
+         <input type="text" formControlName="genus">
+       </label>
+
+       <label>Species:
+         <input type="text" formControlName="species">
+       </label>
+
+       <label>Country:
+         <input type="text" formControlName="country">
+       </label>
+       
+       <label>State/Province:
+         <input type="text" formControlName="state">
+       </label>
+
+       <label>Locality:
+         <input type="text" formControlName="locality">
+       </label>
+
+       <label>Coordinates:
+         <input type="text" formControlName="coord">
+       </label>
+
+       <label>Elevation:
+         <input type="text" formControlName="elevation">
+       </label>
+
+       <label>Collector:
+         <input type="text" formControlName="collector">
+       </label>
+
+       <label>Collection Number:
+         <input type="text" formControlName="colNumber">
+       </label>
+
+       <label>Date (dd-MM-yyy):
+         <input type="text" formControlName="date">
+       </label>
+
+       <input type="submit" class="button expanded" value="Submit Form" [disabled]="!speciesForm.valid">
+     </div>
+   </div>
+ </form>
+</div>
+
+<ng-template #forminfo>
+  <div class="form-container">
+    <div class="row columns">
+	<h1>Flora of {{ flora }}</h1>
+	<h2>{{ family }}</h2>
+        <h2>{{ genus }}</h2>
+        <h2>{{ species }}</h2>
+        <h2>{{ locality }}</h2>
+        <h2>{{ collector }}</h2>
+        <h2>{{ colNumber }}</h2>
+    </div>
+  </div>
+</ng-template>

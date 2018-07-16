@@ -1,1 +1,6 @@
-@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700');
+
+body {
+    background:#e8e8e8;
+    font-family: 'Muli';
+}
