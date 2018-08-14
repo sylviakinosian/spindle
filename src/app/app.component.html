@@ -3,11 +3,14 @@
    <div class="form-container">
      <div class="row columns">
        <h1>Species Form</h1>
-
+    
+       <div style="width: 100%;">
+       <div style="float:left; width: 49%">
+   
        <label>Flora of:
          <input type="text" formControlName="flora">
        </label>
-       <div class="alert" *ngIf="!speciesForm.controls['family'].valid && speciesForm.controls['family'].touched">{{ titleAlert }}</div>
+       <div class="alert" *ngIf="!speciesForm.controls['flora'].valid && speciesForm.controls['family'].touched">{{ titleAlert }}</div>
 
        <label>Family:
          <input type="text" formControlName="family">
@@ -42,8 +45,32 @@
          <input type="text" formControlName="elevation">
        </label>
 
+       </div>
+   
+       <div style="float:right; width: 49%">
+
+       <label>Ecology (soil type, moisture, habitat, etc):
+         <input type="text" formControlName="ecology">
+       </label>
+       
+       <label>Associated species (Latin names):
+         <input type="text" formControlName="otherSp">
+       </label>
+
+       <label>Description of plant:
+         <input type="text" formControlName="description">
+       </label>
+	
+       <label>Voucher information (study title, GENBANK #, etc):
+         <input type="text" formControlName="voucher">
+       </label>
+       
        <label>Collector:
          <input type="text" formControlName="collector">
+       </label>
+
+       <label>Additional Collectors:
+         <input type="text" formControlName="party">
        </label>
 
        <label>Collection Number:
@@ -54,7 +81,12 @@
          <input type="text" formControlName="date">
        </label>
 
+       </div>
+       </div>
+       <div style="clear:both"></div>
+
        <input type="submit" class="button expanded" value="Submit Form" [disabled]="!speciesForm.valid">
+
      </div>
    </div>
  </form>
@@ -62,14 +94,27 @@
 
 <ng-template #forminfo>
   <div class="form-container">
-    <div class="row columns">
-	<h1>Flora of {{ flora }}</h1>
-	<h2>{{ family }}</h2>
-        <h2>{{ genus }}</h2>
-        <h2>{{ species }}</h2>
-        <h2>{{ locality }}</h2>
-        <h2>{{ collector }}</h2>
-        <h2>{{ colNumber }}</h2>
+
+<table id = "table1" class="export-table" style="width: 100%; margin-top: 20px">
+          <thead>
+              <tr>
+                  <th>Family</th>
+                  <th>Genus</th>
+                  <th>Species</th>
+                  <th>Collector</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="item in reportData">
+                  <td>{{ family }}</td>
+                  <td>{{ genus }}</td>
+                  <td>{{ species }}</td>
+                  <td>{{ collector}}</td>
+              </tr>
+          </tbody>
+    </table>
+
+    <input value="Export as CSV" type="button" onclick="$('#table1').table2CSV({header:['family','genus','species','collector']})">
+    
     </div>
-  </div>
 </ng-template>

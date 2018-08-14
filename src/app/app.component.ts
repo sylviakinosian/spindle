@@ -21,7 +21,12 @@ export class AppComponent {
   locality: string= '';
   coord: string= '';
   elevation: string='';
+  ecology: string='';
+  otherSp: string='';
+  description: string='';
+  voucher: string='';
   collector: string= '';
+  party: string= '';
   colNumber: string= '';
   date: string= '';
 
@@ -37,7 +42,12 @@ export class AppComponent {
 	  'locality' : [null],
 	  'coord' : [null],
 	  'elevation' : [null],
+	  'ecology' : [null],
+	  'otherSp' : [null],
+	  'description' : [null],
+	  'voucher': [null],
 	  'collector' : [null],
+	  'party' : [null],
 	  'colNumber' : [null],
 	  'date' : [null]
 	})
@@ -53,7 +63,12 @@ export class AppComponent {
     this.locality = post.locality;
     this.coord = post.coord;
     this.elevation = post.elevation;
+    this.ecology = post.ecology;
+    this.otherSp = post.otherSp;
+    this.description = post.description;
+    this.voucher = post.voucher;
     this.collector = post.collector;
+    this.party = post.party;
     this.colNumber = post.colNumber;
     this.date = post.date;
   } 
