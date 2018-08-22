@@ -19,6 +19,7 @@
        <label>Genus:
          <input type="text" formControlName="genus">
        </label>
+       <div class="alert" *ngIf="!speciesForm.controls['genus'].valid && speciesForm.controls['genus'].touched">{{ titleAlert }}</div>
 
        <label>Species:
          <input type="text" formControlName="species">
@@ -39,6 +40,7 @@
        <label>Locality:
          <input type="text" formControlName="locality">
        </label>
+       <div class="alert" *ngIf="!speciesForm.controls['locality'].valid && speciesForm.controls['locality'].touched">{{ titleAlert }}</div>
 
        <label>Coordinates:
          <input type="text" formControlName="coord">
@@ -71,6 +73,7 @@
        <label>Collector:
          <input type="text" formControlName="collector">
        </label>
+       <div class="alert" *ngIf="!speciesForm.controls['collector'].valid && speciesForm.controls['collector'].touched">{{ titleAlert }}</div>
 
        <label>Additional Collectors:
          <input type="text" formControlName="party">
@@ -79,10 +82,12 @@
        <label>Collection Number:
          <input type="text" formControlName="colNumber">
        </label>
-
+       <div class="alert" *ngIf="!speciesForm.controls['colNumber'].valid && speciesForm.controls['colNumber'].touched">{{ titleAlert }}</div>
+       
        <label>Date (yyyy-MM-dd):
          <input type="text" formControlName="date">
-       </label>
+       </label> 
+       <div class="alert" *ngIf="!speciesForm.controls['date'].valid && speciesForm.controls['date'].touched">{{ titleAlert }}</div>
 
        </div>
        </div>
@@ -146,9 +151,9 @@
           </tbody>
     </table>
 
-    <input type="submit=false" class="button" value="Back">
+    <input type="button" class="button" value="Back" formaction="submitted=false">
 
-    <input type="button" class="button" value="Export as CSV" onclick="$('#table1').table2CSV({header:['family','genus','species','collector']})">
+    <input type="button" class="button" value="Export as CSV" formaction="$('#table1').table2CSV({header:['family','genus','species','collector']})">
     
   </div>
 </ng-template>

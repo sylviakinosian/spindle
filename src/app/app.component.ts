@@ -35,23 +35,23 @@ export class AppComponent {
 
 	this.speciesForm = fb.group({
 	  'flora' : [null, Validators.required],
-	  'family' : [null, Validators.required],
-	  'genus' : [null],
+	  'family' : [null],
+	  'genus' : [null, Validators.required],
 	  'species' : [null],
 	  'other' : [null],
 	  'country' : [null],
 	  'state' : [null],
-	  'locality' : [null],
+	  'locality' : [null, Validators.required],
 	  'coord' : [null],
 	  'elevation' : [null],
 	  'ecology' : [null],
 	  'otherSp' : [null],
 	  'description' : [null],
 	  'voucher': [null],
-	  'collector' : [null],
+	  'collector' : [null, Validators.required],
 	  'party' : [null],
-	  'colNumber' : [null],
-	  'date' : [null]
+	  'colNumber' : [null, Validators.required],
+	  'date' : [null, Validators.required]
 	})
   }
   
