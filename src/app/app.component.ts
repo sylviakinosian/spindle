@@ -16,6 +16,7 @@ export class AppComponent {
   titleAlert:string = 'This field is required';
   genus: string= '';
   species: string= '';
+  other: string= '';
   country: string= '';
   state: string= '';
   locality: string= '';
@@ -37,6 +38,7 @@ export class AppComponent {
 	  'family' : [null, Validators.required],
 	  'genus' : [null],
 	  'species' : [null],
+	  'other' : [null],
 	  'country' : [null],
 	  'state' : [null],
 	  'locality' : [null],
@@ -58,6 +60,7 @@ export class AppComponent {
     this.family = post.family;
     this.genus = post.genus;
     this.species = post.species;
+    this.other = post.other;
     this.country = post.country;
     this.state = post.state;
     this.locality = post.locality;

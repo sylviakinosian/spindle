@@ -1,4 +1,4 @@
-<div *ngIf="!family; else forminfo">
+<div *ngIf="!flora; else forminfo">
  <form [formGroup]="speciesForm" (ngSubmit)="addPost(speciesForm.value)">
    <div class="form-container">
      <div class="row columns">
@@ -10,12 +10,11 @@
        <label>Flora of:
          <input type="text" formControlName="flora">
        </label>
-       <div class="alert" *ngIf="!speciesForm.controls['flora'].valid && speciesForm.controls['family'].touched">{{ titleAlert }}</div>
+       <div class="alert" *ngIf="!speciesForm.controls['flora'].valid && speciesForm.controls['flora'].touched">{{ titleAlert }}</div>
 
        <label>Family:
          <input type="text" formControlName="family">
        </label>
-       <div class="alert" *ngIf="!speciesForm.controls['family'].valid && speciesForm.controls['family'].touched">{{ titleAlert }}</div>
 
        <label>Genus:
          <input type="text" formControlName="genus">
@@ -25,6 +24,10 @@
          <input type="text" formControlName="species">
        </label>
 
+       <label>Sub-species, variety, OR other epithet:
+         <input type="text" formControlName="other">
+       </label>
+       
        <label>Country:
          <input type="text" formControlName="country">
        </label>
@@ -41,18 +44,18 @@
          <input type="text" formControlName="coord">
        </label>
 
-       <label>Elevation:
-         <input type="text" formControlName="elevation">
-       </label>
-
        </div>
    
        <div style="float:right; width: 49%">
 
+       <label>Elevation:
+         <input type="text" formControlName="elevation">
+       </label>
+
        <label>Ecology (soil type, moisture, habitat, etc):
          <input type="text" formControlName="ecology">
        </label>
-       
+      
        <label>Associated species (Latin names):
          <input type="text" formControlName="otherSp">
        </label>
@@ -77,7 +80,7 @@
          <input type="text" formControlName="colNumber">
        </label>
 
-       <label>Date (dd-MM-yyy):
+       <label>Date (yyyy-MM-dd):
          <input type="text" formControlName="date">
        </label>
 
@@ -85,9 +88,12 @@
        </div>
        <div style="clear:both"></div>
 
-       <input type="submit" class="button expanded" value="Submit Form" [disabled]="!speciesForm.valid">
+       <input type="submit" class="button" value="Verify and Add" [disabled]="!speciesForm.valid"> 
+       
+       <input type="reset" class="button" value="Reset form">
 
-     </div>
+       <input type="submit" class="button" value="View output" [disabled]="speciesForm.valid" >
+      </div> 
    </div>
  </form>
 </div>
@@ -95,13 +101,26 @@
 <ng-template #forminfo>
   <div class="form-container">
 
-<table id = "table1" class="export-table" style="width: 100%; margin-top: 20px">
+  <table id = "table1" class="export-table" style="width: 85%; margin-top: 1px">
           <thead>
               <tr>
                   <th>Family</th>
                   <th>Genus</th>
-                  <th>Species</th>
+                  <th>Species</th> 
+		  <th>Sub-sp., variety, etc</th>
+		  <th>Locality</th> 
+		  <th>State</th>
+		  <th>Country</th>
+		  <th>Elevation</th>
+		  <th>Coordinates</th>
+		  <th>Ecology</th>
+		  <th>Associated species</th>
+		  <th>Description</th>
+		  <th>Voucher Info.</th>
                   <th>Collector</th>
+		  <th>Additional Collectors</th>
+		  <th>Collection number</th>
+		  <th>Date</th>
               </tr>
           </thead>
           <tbody>
@@ -109,12 +128,27 @@
                   <td>{{ family }}</td>
                   <td>{{ genus }}</td>
                   <td>{{ species }}</td>
+		  <td>{{ other }}</td>
+		  <td>{{ locality }}</td>
+		  <td>{{ state }}</td>
+		  <td>{{ country }}</td>
+		  <td>{{ elevation }}</td>
+		  <td>{{ coord }}</td>
+		  <td>{{ ecology }}</td>
+		  <td>{{ otherSp }}</td>
+		  <td>{{ description }}</td>
+		  <td>{{ voucher }}</td>
                   <td>{{ collector}}</td>
+		  <td>{{ party }}</td>
+		  <td>{{ colNumber }}</td>
+		  <td>{{ date }}</td>
               </tr>
           </tbody>
     </table>
 
-    <input value="Export as CSV" type="button" onclick="$('#table1').table2CSV({header:['family','genus','species','collector']})">
+    <input type="submit=false" class="button" value="Back">
+
+    <input type="button" class="button" value="Export as CSV" onclick="$('#table1').table2CSV({header:['family','genus','species','collector']})">
     
-    </div>
+  </div>
 </ng-template>

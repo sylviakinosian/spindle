@@ -4,6 +4,8 @@
     padding:2em;
     margin: 2em auto;
     background:#fff;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .alert {
@@ -16,8 +18,12 @@
 }
 
 .button {
-    margin-top: 3rem;
+    display: inline-block;
+    margin-top: 2rem;
+    margin-right: 2em;
+    width: 20%;
 }
+
 h1 {
     margin-bottom: 2rem;
     font-weight:bold;
