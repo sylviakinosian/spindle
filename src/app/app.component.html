@@ -15,6 +15,7 @@
        <label>Family:
          <input type="text" formControlName="family">
        </label>
+       <div class="ng-valid[required]" [hidden]="speciesForm.controls['family'].pristine"></div>
 
        <label>Genus:
          <input type="text" formControlName="genus">
@@ -93,11 +94,13 @@
        </div>
        <div style="clear:both"></div>
 
+       <input type="submit" class="button" value="Save and Add">
+
        <input type="submit" class="button" value="Verify and Add" [disabled]="!speciesForm.valid"> 
        
        <input type="reset" class="button" value="Reset form">
 
-       <input type="submit" class="button" value="View output" [disabled]="speciesForm.valid" >
+       <input type="submit" class="button" value="View output" [disabled]="!speciesForm.valid">
       </div> 
    </div>
  </form>
@@ -151,8 +154,11 @@
           </tbody>
     </table>
 
-    <input type="button" class="button" value="Back" formaction="submitted=false">
+    <input type="reset" class="button" value="Back" formaction="submitted=false">
 
+
+    <button export-to-csv>Export as CSV</button>
+    
     <input type="button" class="button" value="Export as CSV" formaction="$('#table1').table2CSV({header:['family','genus','species','collector']})">
     
   </div>
