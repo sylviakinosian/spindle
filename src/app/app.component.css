@@ -1,28 +1,9 @@
-.form-container {
+.main-form-container {
     display:block;
     width:90%;
-    padding:2em;
-    margin: 2em auto;
+    padding:1em;
     background:#fff;
-    overflow-x: auto;
-    overflow-y: auto;
-}
-
-.alert {
-    background: #f2edda;
-    padding: 7px;
-    font-size: .9em;
-    margin-bottom: 20px;
-    display: inline-block;
-    animation: 2s alertAnim forwards;
-}
-
-
-.button {
-    display: inline-block;
-    margin-top: 2rem;
-    margin-right: 2em;
-    width: 20%;
+    text-align: center;
 }
 
 .h1 {
@@ -32,14 +13,3 @@
     font-size: 2em;
 }
 
-
-@keyframes alertAnim {
-    from {
-        opacity:0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity:1;
-        transform: translateY(0);
-    }
-}

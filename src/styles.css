@@ -1,6 +1,45 @@
-@import url('https://fonts.googleapis.com/css?family=Muli:400,700');
-
-body {
-    background:#e8e8e8;
-    font-family: 'Muli';
+.form-container {
+    display:block;
+    width:90%;
+    padding:2em;
+    margin: 2em auto;
+    background:#fff;
+    overflow-x: auto;
+    overflow-y: auto;
 }
+
+
+.button {
+    display: inline-block;
+    margin-top: 2rem;
+    margin-right: 2em;
+    width: 20%;
+}
+
+.h1 {
+    margin-bottom: 2rem;
+    font-weight:bold;
+    font-family:'Muli';
+    font-size: 2em;
+}
+
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.active {
+  color: #039be5;
+}
+
