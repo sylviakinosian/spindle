@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, FormArray } from '@angular/forms';
+import { FormEditorComponent } from '../form-editor/form-editor.component';
 
 @Component({
   selector: 'app-table',
@@ -8,6 +9,4 @@ import { FormControl } from '@angular/forms';
 })
 
 export class TableComponent {
-  name = new FormControl('');
-
 }

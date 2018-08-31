@@ -1,5 +1,6 @@
-<ng-template #forminfo>
   <div class="form-container">
+
+  <h2>Data Table</h2>
 
   <table id = "table1" class="export-table" style="width: 85%; margin-top: 1px">
           <thead>
@@ -46,5 +47,11 @@
           </tbody>
     </table>
 
-    <input type="reset" class="button" value="Back" formaction="submitted=false">
+    <nav>
+    <input class="button" value="Back" (click)="toggleEditor('form')">
+    </nav>
 
+
+  </div>
+
+    <app-form-editor *ngIf="showFormEditor"></app-form-editor>

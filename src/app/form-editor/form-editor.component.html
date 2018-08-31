@@ -2,8 +2,8 @@
  <form [formGroup]="speciesForm" (ngSubmit)="addPost(speciesForm.value)">
    <div class="form-container">
      <div class="row columns">
-       <h1>Species Form</h1>
-    
+       <h2>Species Information</h2>
+ 
        <div style="width: 100%;">
        <div style="float:left; width: 49%">
    
@@ -15,7 +15,6 @@
        <label>Family:
          <input type="text" formControlName="family">
        </label>
-       <div class="ng-valid[required]" [hidden]="speciesForm.controls['family'].pristine"></div>
 
        <label>Genus:
          <input type="text" formControlName="genus">
@@ -47,8 +46,7 @@
          <input type="text" formControlName="coord">
        </label>
 
-       </div>
-   
+       </div> 
        <div style="float:right; width: 49%">
 
        <label>Elevation:
@@ -91,8 +89,8 @@
        <div class="alert" *ngIf="!speciesForm.controls['date'].valid && speciesForm.controls['date'].touched">{{ titleAlert }}</div>
 
        </div>
-       </div>
-       <div style="clear:both"></div>
+     </div>
+   <div style="clear:both"></div>
 
        <input type="submit" class="button" value="Verify and Add" [disabled]="!speciesForm.valid"> 
        
@@ -100,6 +98,7 @@
 
        <input class="button" value="View output" (click)="toggleEditor('table')">
       </div> 
+
    </div>
  </form>
 </div>
@@ -155,7 +154,7 @@
     <input type="reset" class="button" value="Back" formaction="submitted=false">
 
 
-    <button export-to-csv>Export as CSV</button>
+    <button type="export-to-csv">Export as CSV</button>
     
     <input type="button" class="button" value="Export as CSV" formaction="$('#table1').table2CSV({header:['family','genus','species','collector']})">
     
