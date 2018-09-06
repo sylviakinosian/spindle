@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
-export type EditorType = 'form' | 'table';
-
 @Component({
   selector: 'app-form-editor',
   templateUrl: './form-editor.component.html',
@@ -78,18 +76,4 @@ export class FormEditorComponent {
     this.date = post.date;
   }
 
-  editor: EditorType = 'form';
-
-  get showFormEditor() {
-    return this.editor === 'form';
-  }
-
-  get showTable() {
-    return this.editor === 'table';
-  }
-
-  toggleEditor(type: EditorType) {
-    this.editor = type;
-  }  
- 
 }

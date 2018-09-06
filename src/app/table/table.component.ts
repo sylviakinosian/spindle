@@ -9,4 +9,6 @@ import { FormEditorComponent } from '../form-editor/form-editor.component';
 })
 
 export class TableComponent {
+
+
 }
