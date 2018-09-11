@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { tap, first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form-editor',
@@ -7,13 +8,13 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
   styleUrls: ['./form-editor.component.css']
 })
 
-export class FormEditorComponent {
+export class FormEditorComponent implements OnInit {
 
   speciesForm: FormGroup;
   post: any;
+  titleAlert:string = 'This field is required';
   flora: string= '';
   family: string= '';
-  titleAlert:string = 'This field is required';
   genus: string= '';
   species: string= '';
   other: string= '';
@@ -31,11 +32,23 @@ export class FormEditorComponent {
   colNumber: string= '';
   date: string= '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder) { }
 
-	this.speciesForm = fb.group({
-	  'flora' : [null, Validators.required],
-	  'family' : [null],
+  ngOnInit() {
+	this.speciesForm = this.fb.group({
+	  'flora': [null, Validators.required],
+          'info': this.fb.array([])
+	})
+
+  }
+
+  get formInfo() {
+       return this.speciesForm.get('info') as FormArray
+  }
+
+  addSpecies() {
+       const speciesInfo = this.fb.group({
+          'family' : [null],
 	  'genus' : [null, Validators.required],
 	  'species' : [null],
 	  'other' : [null],
@@ -52,10 +65,16 @@ export class FormEditorComponent {
 	  'party' : [null],
 	  'colNumber' : [null, Validators.required],
 	  'date' : [null, Validators.required]
-	})
+       })
+       
+       this.formInfo.push(speciesInfo);
   }
-  
-  addPost(post) {
+
+  deleteSpecies(i) {
+  	this.formInfo.removeAt(i)
+  }
+
+  addPost(post){
     this.flora = post.flora;
     this.family = post.family;
     this.genus = post.genus;
@@ -73,7 +92,8 @@ export class FormEditorComponent {
     this.collector = post.collector;
     this.party = post.party;
     this.colNumber = post.colNumber;
-    this.date = post.date;
+    this.date = post.date;  
   }
 
 }
+  

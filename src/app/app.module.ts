@@ -5,19 +5,17 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FormEditorComponent } from './form-editor/form-editor.component';
-import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormEditorComponent,
-    TableComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

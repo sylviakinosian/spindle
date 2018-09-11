@@ -1,16 +1,19 @@
-<div *ngIf="!flora; else forminfo">
- <form [formGroup]="speciesForm" (ngSubmit)="addPost(speciesForm.value)">
-   <div class="form-container">
-     <div class="row columns">
-       <h2>Species Information</h2>
- 
+<form [formGroup]="speciesForm" (ngSubmit)="addPost(speciesForm.value)">
+<div class="form-container">
+
+   <h1>Collection Information</h1>
+
+   <label>Flora of:
+     <input type="text" formControlName="flora">
+   </label>
+   <div class="alert" *ngIf="!speciesForm.controls['flora'].valid && speciesForm.controls['flora'].touched">{{ titleAlert }}</div>
+
+   <div formArrayName="info">
+     <div *ngFor="let speciesInfo of formInfo.controls; let i=index" [formGroupName]="i">
+       <h2>Collection #{{i}}</h2>
+
        <div style="width: 100%;">
        <div style="float:left; width: 49%">
-   
-       <label>Flora of:
-         <input type="text" formControlName="flora">
-       </label>
-       <div class="alert" *ngIf="!speciesForm.controls['flora'].valid && speciesForm.controls['flora'].touched">{{ titleAlert }}</div>
 
        <label>Family:
          <input type="text" formControlName="family">
@@ -19,7 +22,6 @@
        <label>Genus:
          <input type="text" formControlName="genus">
        </label>
-       <div class="alert" *ngIf="!speciesForm.controls['genus'].valid && speciesForm.controls['genus'].touched">{{ titleAlert }}</div>
 
        <label>Species:
          <input type="text" formControlName="species">
@@ -40,12 +42,11 @@
        <label>Locality:
          <input type="text" formControlName="locality">
        </label>
-       <div class="alert" *ngIf="!speciesForm.controls['locality'].valid && speciesForm.controls['locality'].touched">{{ titleAlert }}</div>
 
        <label>Coordinates:
          <input type="text" formControlName="coord">
        </label>
-
+ 
        </div> 
        <div style="float:right; width: 49%">
 
@@ -72,7 +73,6 @@
        <label>Collector:
          <input type="text" formControlName="collector">
        </label>
-       <div class="alert" *ngIf="!speciesForm.controls['collector'].valid && speciesForm.controls['collector'].touched">{{ titleAlert }}</div>
 
        <label>Additional Collectors:
          <input type="text" formControlName="party">
@@ -81,25 +81,25 @@
        <label>Collection Number:
          <input type="text" formControlName="colNumber">
        </label>
-       <div class="alert" *ngIf="!speciesForm.controls['colNumber'].valid && speciesForm.controls['colNumber'].touched">{{ titleAlert }}</div>
        
        <label>Date (yyyy-MM-dd):
          <input type="text" formControlName="date">
        </label> 
-       <div class="alert" *ngIf="!speciesForm.controls['date'].valid && speciesForm.controls['date'].touched">{{ titleAlert }}</div>
 
        </div>
-     </div>
-   <div style="clear:both"></div>
-
-       <input type="submit" class="button" value="Verify and Add" [disabled]="!speciesForm.valid"> 
        
+       <input class="button" (click)="deleteSpecies()" value="Delete collection">
+
        <input type="reset" class="button" value="Reset form">
+       
+       <hr>
+       </div>
+       </div>
 
-      </div> 
+       <input type="submit" class="button" value="Verify and Export" [disabled]="!speciesForm.valid"> 
+       
+       <input type="button" class="button" (click)="addSpecies()" value="Add collection">
 
-   </div>
- </form>
 </div>
 
 <ng-template #forminfo>

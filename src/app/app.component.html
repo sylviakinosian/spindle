@@ -1,13 +1,3 @@
-<div class="main-form-container">
-<h1>Herbarium Data Entry</h1>
+<h1>Herbarium Specimen Data Entry</h1>
 
-<nav>
-  <a (click)="toggleEditor('form')">Species Form</a>
-  <a (click)="toggleEditor('table')">Data Table</a>
-</nav>
-</div>
-
-<app-form-editor *ngIf="showFormEditor"></app-form-editor>
-
-<app-table *ngIf="showTable"></app-table>
-
+<app-form-editor></app-form-editor>
