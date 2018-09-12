@@ -21,9 +21,18 @@
 }
 
 .h1 {
-    margin-bottom: 2rem;
-    font-weight:bold;
-    font-family:'Muli';
+    font-family: Arial;
+    text-align: center;
+    margin-top:1rem;
+    margin-bottom: 1rem;
+    font-size: 3em;
+}
+
+.h2 {
+    font-family: Arial;
+    text-align: center;
+    margin-top:1rem;
+    margin-bottom: 1rem;
     font-size: 2em;
 }
 

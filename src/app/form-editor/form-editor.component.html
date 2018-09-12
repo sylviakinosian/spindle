@@ -1,16 +1,17 @@
 <form [formGroup]="speciesForm" (ngSubmit)="addPost(speciesForm.value)">
 <div class="form-container">
 
-   <h1>Collection Information</h1>
+   <div class=h3>Collection Information</div>
 
    <label>Flora of:
      <input type="text" formControlName="flora">
    </label>
    <div class="alert" *ngIf="!speciesForm.controls['flora'].valid && speciesForm.controls['flora'].touched">{{ titleAlert }}</div>
+   <hr>
 
    <div formArrayName="info">
      <div *ngFor="let speciesInfo of formInfo.controls; let i=index" [formGroupName]="i">
-       <h2>Collection #{{i}}</h2>
+       <div class=h3>Collection #{{i}}</div>
 
        <div style="width: 100%;">
        <div style="float:left; width: 49%">
@@ -22,6 +23,7 @@
        <label>Genus:
          <input type="text" formControlName="genus">
        </label>
+       <div class="alert" *ngIf="!speciesInfo.controls['genus'].valid && speciesInfo.controls['genus'].touched">{{ titleAlert }}</div>
 
        <label>Species:
          <input type="text" formControlName="species">
@@ -42,6 +44,7 @@
        <label>Locality:
          <input type="text" formControlName="locality">
        </label>
+       <div class="alert" *ngIf="!speciesInfo.controls['locality'].valid && speciesInfo.controls['locality'].touched">{{ titleAlert }}</div>
 
        <label>Coordinates:
          <input type="text" formControlName="coord">
@@ -73,6 +76,7 @@
        <label>Collector:
          <input type="text" formControlName="collector">
        </label>
+       <div class="alert" *ngIf="!speciesInfo.controls['collector'].valid && speciesInfo.controls['collector'].touched">{{ titleAlert }}</div>
 
        <label>Additional Collectors:
          <input type="text" formControlName="party">
@@ -81,10 +85,12 @@
        <label>Collection Number:
          <input type="text" formControlName="colNumber">
        </label>
-       
+       <div class="alert" *ngIf="!speciesInfo.controls['colNumber'].valid && speciesInfo.controls['colNumber'].touched">{{ titleAlert }}</div>
+
        <label>Date (yyyy-MM-dd):
          <input type="text" formControlName="date">
        </label> 
+       <div class="alert" *ngIf="!speciesInfo.controls['date'].valid && speciesInfo.controls['date'].touched">{{ titleAlert }}</div>
 
        </div>
        

@@ -25,11 +25,9 @@
     width: 20%;
 }
 
-.h1 {
-    margin-bottom: 2rem;
-    font-weight:bold;
-    font-family:'Muli';
-    font-size: 2em;
+.h3 {
+    font-family: Arial;
+    font-size: 1.5em;
 }
 
 
