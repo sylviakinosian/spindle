@@ -1,30 +1,14 @@
-# Spindal: SPecimen INformation DAta capture & Label creation
+# Spindle: SPecimen INformation DAta capture & Label crEation
 
 **currently under construction**
 
 This app is designed to aid herbarium staff and botanical collectors with a way to record data offline. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8. Our app runs via a web browser; we recommend using the latest version of Chrome or Firefox.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8. Our app runs via a web browser. We recommend using the latest version of Chrome (69+) or Firefox (62+).
 
-## Development server
+## How does it work?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Open up Spindle in your web brower of choice. Enter the area in which you were collecting ("Flora"). The add information for each collection you made. When finished, click the Verify & Export button to view you input and export as a CSV.
 
 ## Further help
 
