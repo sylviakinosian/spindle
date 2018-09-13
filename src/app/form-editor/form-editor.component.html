@@ -1,115 +1,115 @@
-<form [formGroup]="speciesForm" (ngSubmit)="addPost(speciesForm.value)">
-<div class="form-container">
+<form [formGroup]="speciesForm" *ngIf="!success" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <div class=h3>Collection Information</div>
 
-   <div class=h3>Collection Information</div>
+    {{ speciesForm.value | json }}
 
-   <label>Flora of:
-     <input type="text" formControlName="flora">
-   </label>
-   <div class="alert" *ngIf="!speciesForm.controls['flora'].valid && speciesForm.controls['flora'].touched">{{ titleAlert }}</div>
-   <hr>
+      <label>Flora of:
+        <input type="text" formControlName="flora">
+      </label>
+   
+      <div class="alert" *ngIf="!speciesForm.controls['flora'].valid && speciesForm.controls['flora'].touched">{{ titleAlert }}</div>
+      <hr>
 
-   <div formArrayName="info">
-     <div *ngFor="let speciesInfo of formInfo.controls; let i=index" [formGroupName]="i">
-       <div class=h3>Collection #{{i}}</div>
+        <div formArrayName="info">
+        <div *ngFor="let speciesInfo of formInfo.controls; let i=index" [formGroupName]="i">
+        <div class=h3>Collection #{{i+1}}</div>
 
-       <div style="width: 100%;">
-       <div style="float:left; width: 49%">
+        <div style="width: 100%;">
+          <div style="float:left; width: 49%">
+          <label>Family:
+            <input type="text" formControlName="family">
+          </label>
 
-       <label>Family:
-         <input type="text" formControlName="family">
-       </label>
+          <label>Genus:
+            <input type="text" formControlName="genus">
+          </label>
+          <div class="alert" *ngIf="!speciesInfo.controls['genus'].valid && speciesInfo.controls['genus'].touched">{{ titleAlert }}</div>
 
-       <label>Genus:
-         <input type="text" formControlName="genus">
-       </label>
-       <div class="alert" *ngIf="!speciesInfo.controls['genus'].valid && speciesInfo.controls['genus'].touched">{{ titleAlert }}</div>
+          <label>Species:
+            <input type="text" formControlName="species">
+          </label>
 
-       <label>Species:
-         <input type="text" formControlName="species">
-       </label>
+          <label>Sub-species, variety, OR other epithet:
+            <input type="text" formControlName="other">
+          </label>
+          
+          <label>Country:
+            <input type="text" formControlName="country">
+          </label>
+          
+          <label>State/Province:
+            <input type="text" formControlName="state">
+          </label>
 
-       <label>Sub-species, variety, OR other epithet:
-         <input type="text" formControlName="other">
-       </label>
+          <label>Locality:
+            <input type="text" formControlName="locality">
+          </label>
+          <div class="alert" *ngIf="!speciesInfo.controls['locality'].valid && speciesInfo.controls['locality'].touched">{{ titleAlert }}</div>
+
+          <label>Coordinates:
+            <input type="text" formControlName="coord">
+          </label>
+          </div> 
+          
+	  <div style="float:right; width: 49%">
+          <label>Elevation:
+            <input type="text" formControlName="elevation">
+          </label>
+
+          <label>Ecology (soil type, moisture, habitat, etc):
+            <input type="text" formControlName="ecology">
+          </label>
+         
+          <label>Associated species (Latin names):
+            <input type="text" formControlName="otherSp">
+          </label>
+
+          <label>Description of plant:
+            <input type="text" formControlName="description">
+          </label>
+           
+          <label>Voucher information (study title, GENBANK #, etc):
+            <input type="text" formControlName="voucher">
+          </label>
+          
+          <label>Collector:
+            <input type="text" formControlName="collector">
+          </label>
+          <div class="alert" *ngIf="!speciesInfo.controls['collector'].valid && speciesInfo.controls['collector'].touched">{{ titleAlert }}</div>
+
+          <label>Additional Collectors:
+            <input type="text" formControlName="party">
+          </label>
+
+          <label>Collection Number:
+            <input type="text" formControlName="colNumber">
+          </label>
+          <div class="alert" *ngIf="!speciesInfo.controls['colNumber'].valid && speciesInfo.controls['colNumber'].touched">{{ titleAlert }}</div>
+
+          <label>Date (yyyy-MM-dd):
+            <input type="text" formControlName="date">
+          </label> 
+          <div class="alert" *ngIf="!speciesInfo.controls['date'].valid && speciesInfo.controls['date'].touched">{{ titleAlert }}</div>
+          </div>
        
-       <label>Country:
-         <input type="text" formControlName="country">
-       </label>
-       
-       <label>State/Province:
-         <input type="text" formControlName="state">
-       </label>
+          <input class="button" (click)="deleteSpecies()" value="Delete collection">
 
-       <label>Locality:
-         <input type="text" formControlName="locality">
-       </label>
-       <div class="alert" *ngIf="!speciesInfo.controls['locality'].valid && speciesInfo.controls['locality'].touched">{{ titleAlert }}</div>
-
-       <label>Coordinates:
-         <input type="text" formControlName="coord">
-       </label>
- 
-       </div> 
-       <div style="float:right; width: 49%">
-
-       <label>Elevation:
-         <input type="text" formControlName="elevation">
-       </label>
-
-       <label>Ecology (soil type, moisture, habitat, etc):
-         <input type="text" formControlName="ecology">
-       </label>
-      
-       <label>Associated species (Latin names):
-         <input type="text" formControlName="otherSp">
-       </label>
-
-       <label>Description of plant:
-         <input type="text" formControlName="description">
-       </label>
-	
-       <label>Voucher information (study title, GENBANK #, etc):
-         <input type="text" formControlName="voucher">
-       </label>
-       
-       <label>Collector:
-         <input type="text" formControlName="collector">
-       </label>
-       <div class="alert" *ngIf="!speciesInfo.controls['collector'].valid && speciesInfo.controls['collector'].touched">{{ titleAlert }}</div>
-
-       <label>Additional Collectors:
-         <input type="text" formControlName="party">
-       </label>
-
-       <label>Collection Number:
-         <input type="text" formControlName="colNumber">
-       </label>
-       <div class="alert" *ngIf="!speciesInfo.controls['colNumber'].valid && speciesInfo.controls['colNumber'].touched">{{ titleAlert }}</div>
-
-       <label>Date (yyyy-MM-dd):
-         <input type="text" formControlName="date">
-       </label> 
-       <div class="alert" *ngIf="!speciesInfo.controls['date'].valid && speciesInfo.controls['date'].touched">{{ titleAlert }}</div>
-
+          <input type="reset" class="button" value="Reset form">
        </div>
-       
-       <input class="button" (click)="deleteSpecies()" value="Delete collection">
-
-       <input type="reset" class="button" value="Reset form">
        
        <hr>
-       </div>
-       </div>
+    </div>
 
        <input type="submit" class="button" value="Verify and Export" [disabled]="!speciesForm.valid"> 
        
        <input type="button" class="button" (click)="addSpecies()" value="Add collection">
 
-</div>
+    </div>
+  </div>
+</form>
 
-<ng-template #forminfo>
-  <div class="form-container">
+<div class=form-container *ngIf="success">
 
   <table id = "table1" class="export-table" style="width: 85%; margin-top: 1px">
           <thead>
@@ -156,12 +156,10 @@
           </tbody>
     </table>
 
-    <input type="reset" class="button" value="Back" formaction="submitted=false">
-
+    <input type="button" class="button" value="Back" (click)="goBack()">
 
     <button type="export-to-csv">Export as CSV</button>
     
     <input type="button" class="button" value="Export as CSV" formaction="$('#table1').table2CSV({header:['family','genus','species','collector']})">
     
-  </div>
-</ng-template>
+</div>

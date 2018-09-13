@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { tap, first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form-editor',
@@ -31,6 +30,7 @@ export class FormEditorComponent implements OnInit {
   party: string= '';
   colNumber: string= '';
   date: string= '';
+  success = false;
 
   constructor(private fb: FormBuilder) { }
 
@@ -74,25 +74,13 @@ export class FormEditorComponent implements OnInit {
   	this.formInfo.removeAt(i)
   }
 
-  addPost(post){
-    this.flora = post.flora;
-    this.family = post.family;
-    this.genus = post.genus;
-    this.species = post.species;
-    this.other = post.other;
-    this.country = post.country;
-    this.state = post.state;
-    this.locality = post.locality;
-    this.coord = post.coord;
-    this.elevation = post.elevation;
-    this.ecology = post.ecology;
-    this.otherSp = post.otherSp;
-    this.description = post.description;
-    this.voucher = post.voucher;
-    this.collector = post.collector;
-    this.party = post.party;
-    this.colNumber = post.colNumber;
-    this.date = post.date;  
+  onSubmit(){
+        console.log(this.speciesForm.value);
+	this.success = true;
+  }
+
+  goBack() {
+        this.success = false;
   }
 
 }
