@@ -110,8 +110,7 @@
 </form>
 
 <div class=form-container *ngIf="success">
-
-  <table id = "table1" class="export-table" style="width: 85%; margin-top: 1px">
+  <table id = "table1" class="form-table" style="width: 85%; margin-top: 1px">
           <thead>
               <tr>
                   <th>Family</th>
@@ -134,9 +133,9 @@
               </tr>
           </thead>
           <tbody>
-              <tr ng-repeat="item in reportData">
-                  <td>{{ family }}</td>
-                  <td>{{ genus }}</td>
+              <tr *ngFor="let speciesInfo of formInfo.controls; let i=index">
+                  <td>{{ speciesInfo.family }}</td>
+                  <td>{{ speciesInfo.genus }}</td>
                   <td>{{ species }}</td>
 		  <td>{{ other }}</td>
 		  <td>{{ locality }}</td>
@@ -154,12 +153,10 @@
 		  <td>{{ date }}</td>
               </tr>
           </tbody>
-    </table>
+  </table>
 
-    <input type="button" class="button" value="Back" (click)="goBack()">
-
-    <button type="export-to-csv">Export as CSV</button>
-    
-    <input type="button" class="button" value="Export as CSV" formaction="$('#table1').table2CSV({header:['family','genus','species','collector']})">
+ <input type="button" class="button" value="Back" (click)="goBack()">
+ 
+ <input type="button" class="button" value="Export as CSV" formaction="$('#table1').table2CSV({header:['family','genus','species','collector']})">
     
 </div>

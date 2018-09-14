@@ -1,9 +1,15 @@
 .form-container {
     display:block;
-    width:90%;
+    width:95%;
     padding:1em;
     margin: 1em auto;
     background:#fff;
+}
+
+.form-table {
+    width:100%;
+    background:#fff;
+    margin: 0.5em auto;
     overflow-x: auto;
     overflow-y: auto;
 }

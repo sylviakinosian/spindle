@@ -35,8 +35,8 @@ export class FormEditorComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-	this.speciesForm = this.fb.group({
-	  'flora': [null, Validators.required],
+          this.speciesForm = this.fb.group({
+          'flora': [null, Validators.required],
           'info': this.fb.array([])
 	})
 
@@ -47,7 +47,7 @@ export class FormEditorComponent implements OnInit {
   }
 
   addSpecies() {
-       const speciesInfo = this.fb.group({
+       const speciesInfos = this.fb.group({
           'family' : [null],
 	  'genus' : [null, Validators.required],
 	  'species' : [null],
@@ -67,11 +67,11 @@ export class FormEditorComponent implements OnInit {
 	  'date' : [null, Validators.required]
        })
        
-       this.formInfo.push(speciesInfo);
+       this.formInfo.push(speciesInfos);
   }
 
   deleteSpecies(i) {
-  	this.formInfo.removeAt(i)
+  	this.formInfo.removeAt(i);
   }
 
   onSubmit(){
@@ -81,6 +81,10 @@ export class FormEditorComponent implements OnInit {
 
   goBack() {
         this.success = false;
+  }
+
+  goTo(i) {
+  	this.formInfo.at(i);
   }
 
 }
