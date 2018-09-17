@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## How does it work?
 
-Open up Spindle in your web brower of choice. Enter the area in which you were collecting ("Flora"). The add information for each collection you made. When finished, click the Verify & Export button to view you input and export as a CSV.
+Open up Spindle in your web brower of choice. Enter the area in which you were collecting ("Flora"). The add information for each collection you made. When finished, click the Verify & Export button to view your input and export as a CSV.
 
 ## Further help
 
