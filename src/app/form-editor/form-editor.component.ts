@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 @Component({
   selector: 'app-form-editor',
@@ -85,6 +86,10 @@ export class FormEditorComponent implements OnInit {
 
   goTo(i) {
   	this.formInfo.at(i);
+  }
+
+  exportCsv() {
+  	new Angular5Csv(this.speciesForm, 'herbarium_data')
   }
 
 }

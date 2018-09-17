@@ -2,8 +2,6 @@
   <div class="form-container">
     <div class=h3>Collection Information</div>
 
-    {{ speciesForm.value | json }}
-
       <label>Flora of:
         <input type="text" formControlName="flora">
       </label>
@@ -157,6 +155,6 @@
 
  <input type="button" class="button" value="Back" (click)="goBack()">
  
- <input type="button" class="button" value="Export as CSV" formaction="$('#table1').table2CSV({header:['family','genus','species','collector']})">
+ <input type="button" class="button" value="Export as CSV" (click)=exportCsv()>
     
 </div>
