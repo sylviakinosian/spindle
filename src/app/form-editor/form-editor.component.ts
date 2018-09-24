@@ -12,7 +12,7 @@ export class FormEditorComponent implements OnInit {
 
   speciesForm: FormGroup;
   post: any;
-  titleAlert:string = 'This field is required';
+  titleAlert: string = 'This field is required';
   flora: string= '';
   family: string= '';
   genus: string= '';
@@ -37,7 +37,7 @@ export class FormEditorComponent implements OnInit {
 
   ngOnInit() {
           this.speciesForm = this.fb.group({
-          'flora': [null, Validators.required],
+          'flora': [this.flora, Validators.required],
           'info': this.fb.array([])
 	})
 
@@ -77,6 +77,8 @@ export class FormEditorComponent implements OnInit {
 
   onSubmit(){
         console.log(this.speciesForm.value);
+	console.log(this.speciesForm);
+	console.log(this.speciesForm.controls.flora.value);
 	this.success = true;
   }
 
@@ -89,7 +91,14 @@ export class FormEditorComponent implements OnInit {
   }
 
   exportCsv() {
-  	new Angular5Csv(this.speciesForm, 'herbarium_data')
+
+        var options = {
+              fieldSpearator: ',';
+              showLabels: true, 
+              headers: ["Family", "Genus", "Species", "Sub-species", "Locality", "State", "Country", "Elevation", "Coordinates", "Ecology", "Associated Species", "Description", "Voucher Info", "Collector", "Additional Collectors", "Collection Number", "Date"]
+        };
+
+  	new Angular5Csv(this.speciesForm.value.info, 'herbarium_data', options)
   }
 
 }

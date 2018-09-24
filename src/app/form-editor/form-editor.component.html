@@ -110,6 +110,9 @@
 <div class=form-container *ngIf="success">
   <table id = "table1" class="form-table" style="width: 85%; margin-top: 1px">
           <thead>
+	      <tr>
+		  <th colspan="18">Flora of {{ speciesForm[0] }}</th>
+	      </tr>
               <tr>
                   <th>Family</th>
                   <th>Genus</th>
@@ -133,7 +136,7 @@
           <tbody>
               <tr *ngFor="let info of formInfo.controls; let i=index">
                   <td>{{ family }}</td>
-                  <td>{{ genus }}</td>
+                  <td>{{ genus }} </td>
                   <td>{{ species }}</td>
 		  <td>{{ other }}</td>
 		  <td>{{ locality }}</td>
