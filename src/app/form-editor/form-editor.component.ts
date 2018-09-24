@@ -49,23 +49,23 @@ export class FormEditorComponent implements OnInit {
 
   addSpecies() {
        const speciesInfos = this.fb.group({
-          'family' : [null],
-	  'genus' : [null, Validators.required],
-	  'species' : [null],
-	  'other' : [null],
-	  'country' : [null],
-	  'state' : [null],
-	  'locality' : [null, Validators.required],
-	  'coord' : [null],
-	  'elevation' : [null],
-	  'ecology' : [null],
-	  'otherSp' : [null],
-	  'description' : [null],
-	  'voucher': [null],
-	  'collector' : [null, Validators.required],
-	  'party' : [null],
-	  'colNumber' : [null, Validators.required],
-	  'date' : [null, Validators.required]
+          'family' : [this.family],
+	  'genus' : [this.genus, Validators.required],
+	  'species' : [this.species],
+	  'other' : [this.other],
+	  'country' : [this.country],
+	  'state' : [this.state],
+	  'locality' : [this.locality, Validators.required],
+	  'coord' : [this.coord],
+	  'elevation' : [this.elevation],
+	  'ecology' : [this.ecology],
+	  'otherSp' : [this.otherSp],
+	  'description' : [this.description],
+	  'voucher': [this.voucher],
+	  'collector' : [this.collector, Validators.required],
+	  'party' : [this.party],
+	  'colNumber' : [this.colNumber, Validators.required],
+	  'date' : [this.date, Validators.required]
        })
        
        this.formInfo.push(speciesInfos);

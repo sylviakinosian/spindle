@@ -131,9 +131,9 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let speciesInfo of formInfo.controls; let i=index">
-                  <td>{{ speciesInfo.family }}</td>
-                  <td>{{ speciesInfo.genus }}</td>
+              <tr *ngFor="let info of formInfo.controls; let i=index">
+                  <td>{{ family }}</td>
+                  <td>{{ genus }}</td>
                   <td>{{ species }}</td>
 		  <td>{{ other }}</td>
 		  <td>{{ locality }}</td>
