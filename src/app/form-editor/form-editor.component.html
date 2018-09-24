@@ -91,9 +91,8 @@
           <div class="alert" *ngIf="!speciesInfo.controls['date'].valid && speciesInfo.controls['date'].touched">{{ titleAlert }}</div>
           </div>
        
-          <input class="button" (click)="deleteSpecies()" value="Delete collection">
+          <input class="button" (click)="deleteSpecies(i)" value="Delete collection">
 
-          <input type="reset" class="button" value="Reset form">
        </div>
        
        <hr>
@@ -103,6 +102,7 @@
        
        <input type="button" class="button" (click)="addSpecies()" value="Add collection">
 
+       <input type="reset" class="button" value="Reset form">
     </div>
   </div>
 </form>
