@@ -48,7 +48,7 @@ export class FormEditorComponent implements OnInit {
   }
 
   addSpecies() {
-       const speciesInfos = this.fb.group({
+       const speciesInfo = this.fb.group({
           'family' : [this.family],
 	  'genus' : [this.genus, Validators.required],
 	  'species' : [this.species],
@@ -68,7 +68,7 @@ export class FormEditorComponent implements OnInit {
 	  'date' : [this.date, Validators.required]
        })
        
-       this.formInfo.push(speciesInfos);
+       this.formInfo.push(speciesInfo);
   }
 
   deleteSpecies(i) {
@@ -93,7 +93,7 @@ export class FormEditorComponent implements OnInit {
   exportCsv() {
 
         var options = {
-              fieldSpearator: ',';
+              fieldSpearator: ',',
               showLabels: true, 
               headers: ["Family", "Genus", "Species", "Sub-species", "Locality", "State", "Country", "Elevation", "Coordinates", "Ecology", "Associated Species", "Description", "Voucher Info", "Collector", "Additional Collectors", "Collection Number", "Date"]
         };

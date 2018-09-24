@@ -107,8 +107,8 @@
   </div>
 </form>
 
-<div class=form-container *ngIf="success">
-  <table id = "table1" class="form-table" style="width: 85%; margin-top: 1px">
+<div class=form-container [formGroup]="speciesForm" *ngIf="success" >
+      <table id = "table1" class="form-table" style="width: 85%; margin-top: 1px">
           <thead>
 	      <tr>
 		  <th colspan="18">Flora of {{ speciesForm[0] }}</th>
@@ -134,7 +134,9 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let info of formInfo.controls; let i=index">
+
+  		<div formArrayName="info">
+	        <tr *ngFor="let speciesInfo of formInfo.controls; let i=index" [formGroupName]="i">
                   <td>{{ family }}</td>
                   <td>{{ genus }} </td>
                   <td>{{ species }}</td>
@@ -153,8 +155,11 @@
 		  <td>{{ colNumber }}</td>
 		  <td>{{ date }}</td>
               </tr>
-          </tbody>
-  </table>
+	      </div>	
+	  </tbody>
+      </table>
+
+      {{ speciesForm.controls.info.genus | json }}
 
  <input type="button" class="button" value="Back" (click)="goBack()">
  
