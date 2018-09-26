@@ -1,5 +1,6 @@
-<form [formGroup]="speciesForm" *ngIf="!success" (ngSubmit)="onSubmit()">
-  <div class="form-container">
+<form [formGroup]="speciesForm" (ngSubmit)="onSubmit()">
+
+<div class="form-container" *ngIf="!success">
     <div class=h3>Collection Information</div>
 
       <label>Flora of:
@@ -98,20 +99,19 @@
        <hr>
     </div>
 
-       <input type="submit" class="button" value="Verify and Export" [disabled]="!speciesForm.valid"> 
+       <input type="reset" class="button" value="Reset form">
        
        <input type="button" class="button" (click)="addSpecies()" value="Add collection">
 
-       <input type="reset" class="button" value="Reset form">
+       <input type="submit" class="button" value="Submit" [disabled]="!speciesForm.valid"> 
     </div>
-  </div>
-</form>
+</div>
 
-<div class=form-container [formGroup]="speciesForm" *ngIf="success" >
+<div class=form-container *ngIf="success">
       <table id = "table1" class="form-table" style="width: 85%; margin-top: 1px">
           <thead>
 	      <tr>
-		  <th colspan="18">Flora of {{ speciesForm[0] }}</th>
+		  <th colspan="18">Flora of {{ this.speciesForm.value.flora }}</th>
 	      </tr>
               <tr>
                   <th>Family</th>
@@ -134,35 +134,32 @@
               </tr>
           </thead>
           <tbody>
-
-  		<div formArrayName="info">
-	        <tr *ngFor="let speciesInfo of formInfo.controls; let i=index" [formGroupName]="i">
-                  <td>{{ family }}</td>
-                  <td>{{ genus }} </td>
-                  <td>{{ species }}</td>
-		  <td>{{ other }}</td>
-		  <td>{{ locality }}</td>
-		  <td>{{ state }}</td>
-		  <td>{{ country }}</td>
-		  <td>{{ elevation }}</td>
-		  <td>{{ coord }}</td>
-		  <td>{{ ecology }}</td>
-		  <td>{{ otherSp }}</td>
-		  <td>{{ description }}</td>
-		  <td>{{ voucher }}</td>
-                  <td>{{ collector}}</td>
-		  <td>{{ party }}</td>
-		  <td>{{ colNumber }}</td>
-		  <td>{{ date }}</td>
+	      <tr *ngFor="let speciesInfo of formInfo.controls; let i=index">
+                  <td>{{ this.speciesInfo.value.family }}</td>
+                  <td>{{ this.speciesInfo.value.genus }} </td>
+                  <td>{{ this.speciesInfo.value.species }}</td>
+		  <td>{{ this.speciesInfo.value.other }}</td>
+		  <td>{{ this.speciesInfo.value.locality }}</td>
+		  <td>{{ this.speciesInfo.value.state }}</td>
+		  <td>{{ this.speciesInfo.value.country }}</td>
+		  <td>{{ this.speciesInfo.value.elevation }}</td>
+		  <td>{{ this.speciesInfo.value.coord }}</td>
+		  <td>{{ this.speciesInfo.value.ecology }}</td>
+		  <td>{{ this.speciesInfo.value.otherSp }}</td>
+		  <td>{{ this.speciesInfo.value.description }}</td>
+		  <td>{{ this.speciesInfo.value.voucher }}</td>
+                  <td>{{ this.speciesInfo.value.collector}}</td>
+		  <td>{{ this.speciesInfo.value.party }}</td>
+		  <td>{{ this.speciesInfo.value.colNumber }}</td>
+		  <td>{{ this.speciesInfo.value.date }}</td>
               </tr>
-	      </div>	
 	  </tbody>
       </table>
 
-      {{ speciesForm.controls.info.genus | json }}
-
- <input type="button" class="button" value="Back" (click)="goBack()">
+ <input type="button" class="button" value="Edit collections" (click)="goBack()">
  
  <input type="button" class="button" value="Export as CSV" (click)=exportCsv()>
-    
+
 </div>
+
+</form>
