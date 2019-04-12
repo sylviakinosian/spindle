@@ -14,7 +14,11 @@ There are two ways to use Spindle offline. First, you can enable your browser of
 
 ### Save website to your browser's cache
 
-chrome://flags/#show-saved-copy
+* Go to chrome://flags/#show-saved-copy
+* Navigate to the "Show Saved Copy Button" option (should be at the top of the page)
+* Using the drop down menu, select Enable: Primary
+* Relaunch your Chrome
+* When you navigate to spindle-herbarium.com offline, the page will not load automatically. You will see a blue button towards the bottom that says "load saved copy." Click this and spindle-herbarium will load.
 
 ### Save website to your computer
 
