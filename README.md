@@ -18,11 +18,11 @@ chrome://flags/#show-saved-copy
 
 ### Save website to your computer
 
-	* Go to spindle-herbarium.com
-	* Right click, choose "Save as"
-	* Save somewhere easy to find on your computer
-	* Go to the place you saved spindle-herbarium in your file manager
-	* Click on the saved .html file, spindle-herbarium will open in your web browser
+* Go to spindle-herbarium.com
+* Right click, choose "Save as"
+* Save somewhere easy to find on your computer
+* Go to the place you saved spindle-herbarium in your file manager	
+* Click on the saved .html file, spindle-herbarium will open in your web browser
 
 ## Further help
 
