@@ -1,10 +1,9 @@
 <form [formGroup]="speciesForm" (ngSubmit)="onSubmit()">
  
   <div class="form-container" *ngIf="!success">
-      <!-- Site and Event Data  --!>
       <div class=h3>Event and Site Data</div>
       <div style="width: 100%;">
-      <div style="float:right; width: 49%">
+      <div style="float:left; width: 49%">
         <label>Day:
           <input type="text" formControlName="day">
         </label>
@@ -23,7 +22,7 @@
         <label>Collector:
          <input type="text" formControlName="collector">
         </label>
-        <div class="alert" *ngIf="!speciesInfo.controls['collector'].valid && speciesInfo.controls['collector'].touched">{{ titleAlert }}</div>
+        <div class="alert" *ngIf="!speciesForm.controls['collector'].valid && speciesForm.controls['collector'].touched">{{ titleAlert }}</div>
   
         <label>Additional Collectors:
          <input type="text" formControlName="party">
@@ -42,7 +41,7 @@
         </label>
         
 	</div>
-        <div style="float:left; width: 49%">
+        <div style="float:right; width: 49%">
 
         <label>Political Locality #4:
          <input type="text" formControlName="lvl4">
@@ -51,7 +50,7 @@
         <label>Locality:
          <input type="text" formControlName="locality">
         </label>
-        <div class="alert" *ngIf="!speciesInfo.controls['locality'].valid && speciesInfo.controls['locality'].touched">{{ titleAlert }}</div>
+        <div class="alert" *ngIf="!speciesForm.controls['locality'].valid && speciesForm.controls['locality'].touched">{{ titleAlert }}</div>
   
         <label>Coordinates (decimal lat/long):
          <input type="text" formControlName="coord">
@@ -80,7 +79,6 @@
         </div>	
   	</div>
        
-          <!-- individual collection info --!>
           <div formArrayName="info">
           <div *ngFor="let speciesInfo of formInfo.controls; let i=index" [formGroupName]="i">
           <div class=h3>Collection #{{i+1}}</div>
@@ -130,17 +128,14 @@
           
 	</div>
 	</div>
-	</div>
 	<input type="reset" class="button" value="Reset form">
          <input type="button" class="button" (click)="addSpecies()" value="Add collection">
          <input type="submit" class="button" value="Submit" [disabled]="!speciesForm.valid"> 
 	 
   </div>
   
-  <!-- Make & export a table  --!>
   <div class=form-container *ngIf="success">
     <table id = "table1" class="form-table" style="width: 85%; margin-top: 1px">
-        <!-- Column names --!>
         <thead>
             <tr> 
     	      <th>Day</th>
@@ -169,9 +164,8 @@
     	      <th>Notes</th>
             </tr>
         </thead>
-        <!-- Column info --!>
         <tbody>
-	  <tr>
+    	  <tr *ngFor="let speciesInfo of formInfo.controls; let i=index">
     	    <td>{{ this.speciesForm.value.day }}</td>
     	    <td>{{ this.speciesForm.value.month }}</td>
     	    <td>{{ this.speciesForm.value.year }}</td>
@@ -185,10 +179,9 @@
     	    <td>{{ this.speciesForm.value.coord }}</td>
     	    <td>{{ this.speciesForm.value.datum }}</td>
     	    <td>{{ this.speciesForm.value.uncertainty }}</td>
+    	    <td>{{ this.speciesForm.value.colArea }}</td>
     	    <td>{{ this.speciesForm.value.otherSp }}</td>
     	    <td>{{ this.speciesForm.value.substrate }}</td>
-	  </tr>
-    	  <tr *ngFor="let speciesInfo of formInfo.controls; let i=index">
     	    <td>{{ this.speciesInfo.value.colNumber }}</td>
     	    <td>{{ this.speciesInfo.value.family }}</td>
             <td>{{ this.speciesInfo.value.genus }} </td>
