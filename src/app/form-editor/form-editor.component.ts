@@ -13,31 +13,52 @@ export class FormEditorComponent implements OnInit {
   speciesForm: FormGroup;
   post: any;
   titleAlert: string = 'This field is required';
-  flora: string= '';
+  day: string= '';
+  month: string= '';
+  year: string= '';
+  collector: string= '';
+  party: string= '';
+  lvl1: string= '';
+  lvl2: string= '';
+  lvl3: string= '';
+  lvl4: string= '';
+  locality: string= '';
+  coord: string= '';
+  datum: string= '';
+  uncertainty: string= '';
+  colArea: string= ''; 
+  otherSp: string='';
+  substrate: string= '';
+  colNumber: string= '';
   family: string= '';
   genus: string= '';
   species: string= '';
   other: string= '';
-  country: string= '';
-  state: string= '';
-  locality: string= '';
-  coord: string= '';
-  elevation: string='';
-  ecology: string='';
-  otherSp: string='';
+  habitat: string= '';
   description: string='';
-  voucher: string='';
-  collector: string= '';
-  party: string= '';
-  colNumber: string= '';
-  date: string= '';
+  notes: string='';
   success = false;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
           this.speciesForm = this.fb.group({
-          'flora': [this.flora, Validators.required],
+	  'day': [this.day, Validators.required],
+          'month': [this.month, Validators.required],
+          'year': [this.year, Validators.required],
+          'collector': [this.collector, Validators.required],
+          'party': [this.party],
+          'lvl1': [this.lvl1],
+          'lvl2': [this.lvl2],
+          'lvl3': [this.lvl3],
+          'lvl4': [this.lvl4],
+          'locality': [this.locality, Validators.required],
+	  'coord': [this.coord],
+	  'datum': [this.datum],
+          'uncertainty': [this.uncertainty],
+          'habitat': [this.habitat], 
+          'otherSp': [this.otherSp],
+          'substrate': [this.substrate],	
           'info': this.fb.array([])
 	})
 
@@ -48,24 +69,15 @@ export class FormEditorComponent implements OnInit {
   }
 
   addSpecies() {
-       const speciesInfo = this.fb.group({
+       const speciesInfo = this.fb.group({ 
+	  'colNumber' : [this.colNumber, Validators.required],
           'family' : [this.family],
-	  'genus' : [this.genus, Validators.required],
+	  'genus' : [this.genus],
 	  'species' : [this.species],
 	  'other' : [this.other],
-	  'country' : [this.country],
-	  'state' : [this.state],
-	  'locality' : [this.locality, Validators.required],
-	  'coord' : [this.coord],
-	  'elevation' : [this.elevation],
-	  'ecology' : [this.ecology],
-	  'otherSp' : [this.otherSp],
+	  'habitat' : [this.habitat],
 	  'description' : [this.description],
-	  'voucher': [this.voucher],
-	  'collector' : [this.collector, Validators.required],
-	  'party' : [this.party],
-	  'colNumber' : [this.colNumber, Validators.required],
-	  'date' : [this.date, Validators.required]
+	  'notes' : [this.notes]
        })
        
        this.formInfo.push(speciesInfo);
@@ -78,7 +90,6 @@ export class FormEditorComponent implements OnInit {
   onSubmit(){
         console.log(this.speciesForm.value);
 	console.log(this.speciesForm);
-	console.log(this.speciesForm.controls.flora.value);
 	this.success = true;
   }
 
@@ -95,7 +106,7 @@ export class FormEditorComponent implements OnInit {
         var options = {
               fieldSpearator: ',',
               showLabels: true, 
-              headers: ["Family", "Genus", "Species", "Sub-species", "Locality", "State", "Country", "Elevation", "Coordinates", "Ecology", "Associated Species", "Description", "Voucher Info", "Collector", "Additional Collectors", "Collection Number", "Date"]
+              headers: ["Day", "Month", "Year", "Collector", "Additional Collectors", "Political Locality 1", "Political Locality 2", "Political Locality 3", "Political Locality 4", "Locality", "Coordinates", "Datum", "Uncertainty", "Collection Area", "Associated Species", "Substrate", "Collection Number", "Family", "Genus", "Species", "Sub-species or Variety", "Habitat", "Description", "Notes"]
         };
 
   	new Angular5Csv(this.speciesForm.value.info, 'herbarium_data', options)

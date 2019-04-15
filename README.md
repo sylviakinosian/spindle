@@ -2,7 +2,7 @@
 
 This app is designed to aid herbarium staff and botanical collectors with a way to record specimen data offline. Data is entered into a user-friendly web form, and then converted into a CSV file which can be sent to an herbarium database. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8. Our app runs via a web browser. We recommend using the latest version of Chrome (75+) or Firefox (62+).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8. Our app runs via a web browser. We recommend using the latest version of Chrome (69+) or Firefox (62+).
 
 ## How does it work?
 

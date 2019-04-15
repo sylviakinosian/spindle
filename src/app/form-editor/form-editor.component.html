@@ -1,165 +1,208 @@
 <form [formGroup]="speciesForm" (ngSubmit)="onSubmit()">
+ 
+  <div class="form-container" *ngIf="!success">
+      <!-- Site and Event Data  --!>
+      <div class=h3>Event and Site Data</div>
+      <div style="width: 100%;">
+      <div style="float:right; width: 49%">
+        <label>Day:
+          <input type="text" formControlName="day">
+        </label>
+        <div class="alert" *ngIf="!speciesForm.controls['day'].valid && speciesForm.controls['day'].touched">{{ titleAlert }}</div>
+  
+        <label>Month:
+         <input type="text" formControlName="month">
+        </label>
+        <div class="alert" *ngIf="!speciesForm.controls['month'].valid && speciesForm.controls['month'].touched">{{ titleAlert }}</div>
+       
+        <label>Year:
+         <input type="text" formControlName="year">
+        </label> 
+        <div class="alert" *ngIf="!speciesForm.controls['year'].valid && speciesForm.controls['year'].touched">{{ titleAlert }}</div>
+  
+        <label>Collector:
+         <input type="text" formControlName="collector">
+        </label>
+        <div class="alert" *ngIf="!speciesInfo.controls['collector'].valid && speciesInfo.controls['collector'].touched">{{ titleAlert }}</div>
+  
+        <label>Additional Collectors:
+         <input type="text" formControlName="party">
+        </label>
+            
+        <label>Political Locality #1 (Country):
+         <input type="text" formControlName="lvl1">
+        </label>
+        
+        <label>Political Locality #2:
+         <input type="text" formControlName="lvl2">
+        </label>
+        
+        <label>Political Locality #3:
+         <input type="text" formControlName="lvl3">
+        </label>
+        
+	</div>
+        <div style="float:left; width: 49%">
 
-<div class="form-container" *ngIf="!success">
-    <div class=h3>Collection Information</div>
+        <label>Political Locality #4:
+         <input type="text" formControlName="lvl4">
+        </label>
+  
+        <label>Locality:
+         <input type="text" formControlName="locality">
+        </label>
+        <div class="alert" *ngIf="!speciesInfo.controls['locality'].valid && speciesInfo.controls['locality'].touched">{{ titleAlert }}</div>
+  
+        <label>Coordinates (decimal lat/long):
+         <input type="text" formControlName="coord">
+        </label>
+        
+        <label>Datum:
+         <input type="text" formControlName="datum">
+        </label>
+       
+        <label>Uncertainty:
+         <input type="text" formControlName="uncertainty">
+        </label>
+  
+        <label>Collection Area Description:
+          <input type="text" formControlName="colArea">
+        </label>
+           
+        <label>Associated species (Latin names):
+         <input type="text" formControlName="otherSp">
+        </label>
+  
+        <label>Substrate:
+          <input type="text" formControlName="substrate">
+        </label>
+	
+        </div>	
+  	</div>
+       
+          <!-- individual collection info --!>
+          <div formArrayName="info">
+          <div *ngFor="let speciesInfo of formInfo.controls; let i=index" [formGroupName]="i">
+          <div class=h3>Collection #{{i+1}}</div>
+  
+          <div style="width: 100%;">
+          <div style="float:right; width: 49%">
 
-      <label>Flora of:
-        <input type="text" formControlName="flora">
-      </label>
-   
-      <div class="alert" *ngIf="!speciesForm.controls['flora'].valid && speciesForm.controls['flora'].touched">{{ titleAlert }}</div>
-      <hr>
-
-        <div formArrayName="info">
-        <div *ngFor="let speciesInfo of formInfo.controls; let i=index" [formGroupName]="i">
-        <div class=h3>Collection #{{i+1}}</div>
-
-        <div style="width: 100%;">
-          <div style="float:left; width: 49%">
-          <label>Family:
+  	  <label>Collection Number:
+              <input type="text" formControlName="colNumber">
+            </label>
+            <div class="alert" *ngIf="!speciesInfo.controls['colNumber'].valid && speciesInfo.controls['colNumber'].touched">{{ titleAlert }}</div>
+  		  
+  	  <label>Family:
             <input type="text" formControlName="family">
           </label>
-
+  
           <label>Genus:
             <input type="text" formControlName="genus">
           </label>
-          <div class="alert" *ngIf="!speciesInfo.controls['genus'].valid && speciesInfo.controls['genus'].touched">{{ titleAlert }}</div>
-
+  
           <label>Species:
             <input type="text" formControlName="species">
           </label>
 
-          <label>Sub-species, variety, OR other epithet:
+	  </div>
+	  <div style="float:left; width: 49%">
+  
+          <label>Sub-species, variety, or other epithet:
             <input type="text" formControlName="other">
           </label>
           
-          <label>Country:
-            <input type="text" formControlName="country">
+          <label>Habitat:
+            <input type="text" formControlName="habitat">
           </label>
-          
-          <label>State/Province:
-            <input type="text" formControlName="state">
-          </label>
-
-          <label>Locality:
-            <input type="text" formControlName="locality">
-          </label>
-          <div class="alert" *ngIf="!speciesInfo.controls['locality'].valid && speciesInfo.controls['locality'].touched">{{ titleAlert }}</div>
-
-          <label>Coordinates:
-            <input type="text" formControlName="coord">
-          </label>
-          </div> 
-          
-	  <div style="float:right; width: 49%">
-          <label>Elevation:
-            <input type="text" formControlName="elevation">
-          </label>
-
-          <label>Ecology (soil type, moisture, habitat, etc):
-            <input type="text" formControlName="ecology">
-          </label>
-         
-          <label>Associated species (Latin names):
-            <input type="text" formControlName="otherSp">
-          </label>
-
-          <label>Description of plant:
+  
+  	  <label>Description:
             <input type="text" formControlName="description">
           </label>
-           
-          <label>Voucher information (study title, GENBANK #, etc):
-            <input type="text" formControlName="voucher">
+  	  
+  	  <label>Notes:
+            <input type="text" formControlName="notes">
           </label>
-          
-          <label>Collector:
-            <input type="text" formControlName="collector">
-          </label>
-          <div class="alert" *ngIf="!speciesInfo.controls['collector'].valid && speciesInfo.controls['collector'].touched">{{ titleAlert }}</div>
-
-          <label>Additional Collectors:
-            <input type="text" formControlName="party">
-          </label>
-
-          <label>Collection Number:
-            <input type="text" formControlName="colNumber">
-          </label>
-          <div class="alert" *ngIf="!speciesInfo.controls['colNumber'].valid && speciesInfo.controls['colNumber'].touched">{{ titleAlert }}</div>
-
-          <label>Date (yyyy-MM-dd):
-            <input type="text" formControlName="date">
-          </label> 
-          <div class="alert" *ngIf="!speciesInfo.controls['date'].valid && speciesInfo.controls['date'].touched">{{ titleAlert }}</div>
-          </div>
-       
+  
+	  </div>
+	  </div>
           <input class="button" (click)="deleteSpecies(i)" value="Delete collection">
-
-       </div>
-       
-       <hr>
-    </div>
-
-       <input type="reset" class="button" value="Reset form">
-       
-       <input type="button" class="button" (click)="addSpecies()" value="Add collection">
-
-       <input type="submit" class="button" value="Submit" [disabled]="!speciesForm.valid"> 
-    </div>
-</div>
-
-<div class=form-container *ngIf="success">
-      <table id = "table1" class="form-table" style="width: 85%; margin-top: 1px">
-          <thead>
-	      <tr>
-		  <th colspan="18">Flora of {{ this.speciesForm.value.flora }}</th>
-	      </tr>
-              <tr>
-                  <th>Family</th>
-                  <th>Genus</th>
-                  <th>Species</th> 
-		  <th>Sub-sp., variety, etc</th>
-		  <th>Locality</th> 
-		  <th>State</th>
-		  <th>Country</th>
-		  <th>Elevation</th>
-		  <th>Coordinates</th>
-		  <th>Ecology</th>
-		  <th>Associated species</th>
-		  <th>Description</th>
-		  <th>Voucher Info.</th>
-                  <th>Collector</th>
-		  <th>Additional Collectors</th>
-		  <th>Collection number</th>
-		  <th>Date</th>
-              </tr>
-          </thead>
-          <tbody>
-	      <tr *ngFor="let speciesInfo of formInfo.controls; let i=index">
-                  <td>{{ this.speciesInfo.value.family }}</td>
-                  <td>{{ this.speciesInfo.value.genus }} </td>
-                  <td>{{ this.speciesInfo.value.species }}</td>
-		  <td>{{ this.speciesInfo.value.other }}</td>
-		  <td>{{ this.speciesInfo.value.locality }}</td>
-		  <td>{{ this.speciesInfo.value.state }}</td>
-		  <td>{{ this.speciesInfo.value.country }}</td>
-		  <td>{{ this.speciesInfo.value.elevation }}</td>
-		  <td>{{ this.speciesInfo.value.coord }}</td>
-		  <td>{{ this.speciesInfo.value.ecology }}</td>
-		  <td>{{ this.speciesInfo.value.otherSp }}</td>
-		  <td>{{ this.speciesInfo.value.description }}</td>
-		  <td>{{ this.speciesInfo.value.voucher }}</td>
-                  <td>{{ this.speciesInfo.value.collector}}</td>
-		  <td>{{ this.speciesInfo.value.party }}</td>
-		  <td>{{ this.speciesInfo.value.colNumber }}</td>
-		  <td>{{ this.speciesInfo.value.date }}</td>
-              </tr>
-	  </tbody>
-      </table>
-
- <input type="button" class="button" value="Edit collections" (click)="goBack()">
- 
- <input type="button" class="button" value="Export as CSV" (click)=exportCsv()>
-
-</div>
+          
+	</div>
+	</div>
+	</div>
+	<input type="reset" class="button" value="Reset form">
+         <input type="button" class="button" (click)="addSpecies()" value="Add collection">
+         <input type="submit" class="button" value="Submit" [disabled]="!speciesForm.valid"> 
+	 
+  </div>
+  
+  <!-- Make & export a table  --!>
+  <div class=form-container *ngIf="success">
+    <table id = "table1" class="form-table" style="width: 85%; margin-top: 1px">
+        <!-- Column names --!>
+        <thead>
+            <tr> 
+    	      <th>Day</th>
+    	      <th>Month</th>
+    	      <th>Year</th>
+    	      <th>Collector</th>
+    	      <th>Additional Collectors</th>
+    	      <th>Political Locality #1</th>
+    	      <th>Political Locality #2</th>
+    	      <th>Political Locality #3</th>
+    	      <th>Political Locality #4</th>
+    	      <th>Locality</th>
+    	      <th>Coordinates</th>
+    	      <th>Datum</th>
+    	      <th>Uncertainty</th>
+    	      <th>Collection Area</th>
+    	      <th>Associated species</th>
+    	      <th>Substrate</th>
+    	      <th>Collection number</th>
+              <th>Family</th>
+              <th>Genus</th>
+              <th>Species</th> 
+    	      <th>Sub-sp., etc</th>
+    	      <th>Habitat</th>
+    	      <th>Description</th>
+    	      <th>Notes</th>
+            </tr>
+        </thead>
+        <!-- Column info --!>
+        <tbody>
+	  <tr>
+    	    <td>{{ this.speciesForm.value.day }}</td>
+    	    <td>{{ this.speciesForm.value.month }}</td>
+    	    <td>{{ this.speciesForm.value.year }}</td>
+    	    <td>{{ this.speciesForm.value.collector}}</td>
+    	    <td>{{ this.speciesForm.value.party }}</td>
+            <td>{{ this.speciesForm.value.lvl1 }}</td>
+    	    <td>{{ this.speciesForm.value.lvl2 }}</td>
+    	    <td>{{ this.speciesForm.value.lvl3 }}</td>
+    	    <td>{{ this.speciesForm.value.lvl4 }}</td>
+    	    <td>{{ this.speciesForm.value.locality }}</td>
+    	    <td>{{ this.speciesForm.value.coord }}</td>
+    	    <td>{{ this.speciesForm.value.datum }}</td>
+    	    <td>{{ this.speciesForm.value.uncertainty }}</td>
+    	    <td>{{ this.speciesForm.value.otherSp }}</td>
+    	    <td>{{ this.speciesForm.value.substrate }}</td>
+	  </tr>
+    	  <tr *ngFor="let speciesInfo of formInfo.controls; let i=index">
+    	    <td>{{ this.speciesInfo.value.colNumber }}</td>
+    	    <td>{{ this.speciesInfo.value.family }}</td>
+            <td>{{ this.speciesInfo.value.genus }} </td>
+            <td>{{ this.speciesInfo.value.species }}</td>
+    	    <td>{{ this.speciesInfo.value.other }}</td>
+    	    <td>{{ this.speciesInfo.value.habitat }}</td>
+    	    <td>{{ this.speciesInfo.value.description }}</td>
+    	    <td>{{ this.speciesInfo.value.notes }}</td>
+          </tr>
+        </tbody>
+    </table>
+  
+   <input type="button" class="button" value="Edit collections" (click)="goBack()">
+   <input type="button" class="button" value="Export as CSV" (click)=exportCsv()>
+  </div>
 
 </form>
