@@ -18,10 +18,8 @@ export class FormEditorComponent implements OnInit {
   year: string= '';
   collector: string= '';
   party: string= '';
-  lvl1: string= '';
-  lvl2: string= '';
-  lvl3: string= '';
-  lvl4: string= '';
+  country: string= '';
+  state: string= '';
   locality: string= '';
   coord: string= '';
   datum: string= '';
@@ -48,10 +46,8 @@ export class FormEditorComponent implements OnInit {
           'year': [this.year, Validators.required],
           'collector': [this.collector, Validators.required],
           'party': [this.party],
-          'lvl1': [this.lvl1],
-          'lvl2': [this.lvl2],
-          'lvl3': [this.lvl3],
-          'lvl4': [this.lvl4],
+          'country': [this.country],
+          'state': [this.state],
           'locality': [this.locality, Validators.required],
 	  'coord': [this.coord],
 	  'datum': [this.datum],
@@ -107,7 +103,7 @@ export class FormEditorComponent implements OnInit {
         var options = {
               fieldSpearator: ',',
               showLabels: true, 
-              headers: ["Day", "Month", "Year", "Collector", "Additional Collectors", "Political Locality 1", "Political Locality 2", "Political Locality 3", "Political Locality 4", "Locality", "Coordinates", "Datum", "Uncertainty", "Collection Area", "Associated Species", "Substrate", "Collection Number", "Family", "Genus", "Species", "Sub-species or Variety", "Habitat", "Description", "Notes"]
+              headers: ["Day", "Month", "Year", "Collector", "Additional Collectors", "Country", "State", "Locality", "Coordinates", "Datum", "Uncertainty", "Collection Area", "Associated Species", "Substrate", "Collection Number", "Family", "Genus", "Species", "Sub-species or Variety", "Habitat", "Description", "Notes"]
         };
 
   	new Angular5Csv(this.speciesForm.value.info, 'herbarium_data', options)

@@ -28,24 +28,16 @@
          <input type="text" formControlName="party">
         </label>
             
-        <label>Political Locality #1 (Country):
-         <input type="text" formControlName="lvl1">
+        <label>Country:
+         <input type="text" formControlName="country">
         </label>
         
-        <label>Political Locality #2:
-         <input type="text" formControlName="lvl2">
-        </label>
-        
-        <label>Political Locality #3:
-         <input type="text" formControlName="lvl3">
+        <label>State:
+         <input type="text" formControlName="state">
         </label>
         
 	</div>
         <div style="float:right; width: 49%">
-
-        <label>Political Locality #4:
-         <input type="text" formControlName="lvl4">
-        </label>
   
         <label>Locality:
          <input type="text" formControlName="locality">
@@ -84,7 +76,7 @@
           <div class=h3>Collection #{{i+1}}</div>
   
           <div style="width: 100%;">
-          <div style="float:right; width: 49%">
+          <div style="float:left; width: 49%">
 
   	  <label>Collection Number:
               <input type="text" formControlName="colNumber">
@@ -104,7 +96,7 @@
           </label>
 
 	  </div>
-	  <div style="float:left; width: 49%">
+	  <div style="float:right; width: 49%">
   
           <label>Sub-species, variety, or other epithet:
             <input type="text" formControlName="other">
@@ -143,10 +135,8 @@
     	      <th>Year</th>
     	      <th>Collector</th>
     	      <th>Additional Collectors</th>
-    	      <th>Political Locality #1</th>
-    	      <th>Political Locality #2</th>
-    	      <th>Political Locality #3</th>
-    	      <th>Political Locality #4</th>
+    	      <th>Country</th>
+    	      <th>State</th>
     	      <th>Locality</th>
     	      <th>Coordinates</th>
     	      <th>Datum</th>
@@ -171,10 +161,8 @@
     	    <td>{{ this.speciesForm.value.year }}</td>
     	    <td>{{ this.speciesForm.value.collector}}</td>
     	    <td>{{ this.speciesForm.value.party }}</td>
-            <td>{{ this.speciesForm.value.lvl1 }}</td>
-    	    <td>{{ this.speciesForm.value.lvl2 }}</td>
-    	    <td>{{ this.speciesForm.value.lvl3 }}</td>
-    	    <td>{{ this.speciesForm.value.lvl4 }}</td>
+            <td>{{ this.speciesForm.value.country }}</td>
+    	    <td>{{ this.speciesForm.value.state }}</td>
     	    <td>{{ this.speciesForm.value.locality }}</td>
     	    <td>{{ this.speciesForm.value.coord }}</td>
     	    <td>{{ this.speciesForm.value.datum }}</td>
