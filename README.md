@@ -8,17 +8,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Open up [Spindle](http://spindle-herbarium.com/) in your web brower of choice. Enter information about the area in which you were collecting. Then click "Add collection" to add information for each collection you made. When finished, click the Verify & Export button to view your input and export as a CSV.
 
+The code for Spindle is available on [GitHub](https://github.com/sylviakinosian/spindle/tree/master/src). By downloading the Angular code, one can make edits to Spindle to personalize the output. The [Angular CLI](https://angular.io/guide/quickstart) is needed to render and run Spindle on a local host.
+
 ## Using Spindle offline
 
 There are two ways to use Spindle offline. First, you can download a release to your computer [here](https://github.com/sylviakinosian/spindle/releases). Second, you can enable your browser to save a copy of spindle-herbarium.com: 
 
 ### Save website to your browser's cache
 
-* Go to chrome://flags/#show-saved-copy
+* Go to [chrome://flags/#show-saved-copy](chrome://flags/#show-saved-copy)
 * Navigate to the "Show Saved Copy Button" option (should be at the top of the page)
 * Using the drop down menu, select Enable: Primary
 * Relaunch Chrome
-* When you navigate to spindle-herbarium.com offline, the page will not load automatically. You will see a blue button towards the bottom that says "load saved copy." Click this and spindle-herbarium will load.
+* When you navigate to [spindle-herbarium.com](spindle-herbarium.com) offline, the page will not load automatically. You will see a blue button towards the bottom that says "load saved copy." Click this and Spindle will load.
 
 ## Further help
 
