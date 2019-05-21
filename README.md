@@ -6,30 +6,22 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## How does it work?
 
-Open up Spindle in your web brower of choice. Enter the area in which you were collecting ("Flora"). The add information for each collection you made. When finished, click the Verify & Export button to view your input and export as a CSV.
+Open up [Spindle](http://spindle-herbarium.com/) in your web brower of choice. Enter information about the area in which you were collecting. Then click "Add collection" to add information for each collection you made. When finished, click the Verify & Export button to view your input and export as a CSV.
 
 ## Using Spindle offline
 
-There are two ways to use Spindle offline. First, you can enable your browser of choice (Chrome or Firefox) to save a copy of spindle-herbarium.com. Second, you could save the webpage to your computer.
+There are two ways to use Spindle offline. First, you can download a release to your computer [here](https://github.com/sylviakinosian/spindle/releases). Second, you can enable your browser to save a copy of spindle-herbarium.com: 
 
 ### Save website to your browser's cache
 
 * Go to chrome://flags/#show-saved-copy
 * Navigate to the "Show Saved Copy Button" option (should be at the top of the page)
 * Using the drop down menu, select Enable: Primary
-* Relaunch your Chrome
+* Relaunch Chrome
 * When you navigate to spindle-herbarium.com offline, the page will not load automatically. You will see a blue button towards the bottom that says "load saved copy." Click this and spindle-herbarium will load.
-
-### Save website to your computer
-
-* Go to spindle-herbarium.com
-* Right click, choose "Save as"
-* Save somewhere easy to find on your computer
-* Go to the place you saved spindle-herbarium in your file manager	
-* Click on the saved .html file, spindle-herbarium will open in your web browser
 
 ## Further help
 
 Please contact Sylvia Kinosian (sylvia.kinosian@gmail.com) for help using Spindle.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more information or help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
