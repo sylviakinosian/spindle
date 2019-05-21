@@ -13,9 +13,9 @@ authors:
     orcid:
     affiliation: 2
 affiliations:
-  - name: Sylvia P. Kinosian, PhD candidate, Utah State University
+  - name: PhD candidate, Utah State University
     index: 1
-  - name: Will D. Pearse, Assistant professor, Utah State University
+  - name: Assistant professor, Utah State University
     index: 2
 date:
 bibliography: paper.bib
@@ -27,7 +27,7 @@ Herbaria are important resources for many aspects of botanical research. In rece
 
 Spindle is a user-friendly web app for herbarium data collection that can be used on- or offline. It uses many features of Angular2 to create a fillable web form that can export a CSV file for upload to an herbarium database. 
 
-# Citations
+The code for Spindle is available on [GitHub](https://github.com/sylviakinosian/spindle). By downloading the Angular code, one can make edits to Spindle to personalize the output. The [Angular CLI](https://angular.io/guide/quickstart) is needed to render and run Spindle on a local host.
 
 # Acknowledgements
 
