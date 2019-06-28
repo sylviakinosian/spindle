@@ -16,7 +16,7 @@ There are two ways to use Spindle offline. First, you can download a release to 
 
 ### Save website to your browser's cache
 
-* Go to [chrome://flags/#show-saved-copy](chrome://flags/#show-saved-copy)
+* Go to: chrome://flags/#show-saved-copy
 * Navigate to the "Show Saved Copy Button" option (should be at the top of the page)
 * Using the drop down menu, select Enable: Primary
 * Relaunch Chrome
