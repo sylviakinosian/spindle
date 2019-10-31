@@ -24,7 +24,7 @@
     "@angular/router": "^6.1.7",
     "angular2-csv": "^0.2.9",
     "angular5-csv": "^0.2.10",
-    "bower": "^1.8.4",
+    "bower": "^1.8.8",
     "core-js": "^2.5.4",
     "ng-click": "0.0.1",
     "ng-csv": "^0.3.6",
